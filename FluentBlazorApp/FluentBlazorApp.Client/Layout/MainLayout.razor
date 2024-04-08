@@ -1,0 +1,73 @@
+﻿@inherits LayoutComponentBase
+@inject FillColor FillColor
+@inject BaseLayerLuminance BaseLayerLuminance
+
+<FluentLayout>
+    <FluentHeader>
+        Marianz - Fluent Blazor App
+		<FluentSpacer />
+		<FluentSelect Class="below outline" @bind-Value="@comboboxValue" TOption="string">
+			<FluentOption id="option-15">Option 1</FluentOption>
+			<FluentOption id="option-16">Second option</FluentOption>
+			<FluentOption id="option-17">Option 3</FluentOption>
+		</FluentSelect>
+		<FluentProfileMenu 
+							Status="@PresenceStatus.Available"
+							HeaderLabel="Microsoft"
+							Initials="BG"
+							FullName="Bill Gates"
+							EMail="bill.gates@microsoft.com"
+							Style="min-width: 330px;" />
+	
+    </FluentHeader>
+    <FluentStack Class="main" Orientation="Orientation.Horizontal" Width="100%">
+        <NavMenu />
+        <FluentBodyContent Class="body-content">
+            <div class="content">
+                @Body
+            </div>
+        </FluentBodyContent>
+    </FluentStack>
+    <FluentFooter>
+        <div class="link1">
+            <a href="https://www.fluentui-blazor.net" target="_blank">Documentation and demos</a>
+        </div>
+        <div class="link2">
+            <a href="https://learn.microsoft.com/en-us/aspnet/core/blazor" target="_blank">About Blazor</a>
+        </div>
+    </FluentFooter>
+</FluentLayout>
+
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>
+
+@code {
+	string? comboboxValue;
+	FluentToolbar? Toolbar;
+	string? value1 = "one", value2 = "two", value3;
+	bool check1;
+	string? text1;
+
+	private FluentMenuButton menubutton = new();
+
+	private Dictionary<string, string> items = new Dictionary<string, string>()
+		{
+		{"0078D4","Windows"},
+		{"D83B01","Office"},
+		{"464EB8","Teams"},
+		{"107C10","Xbox"},
+		{"8661C5","Visual Studio"},
+		{"F2C811","Power BI"},
+		{"0066FF","Power Automate"},
+		{"742774","Power Apps"},
+		{"0B556A","Power Virtual Agents"}
+	};
+
+	private void HandleOnMenuChanged(MenuChangeEventArgs args) {
+
+
+	}
+}
